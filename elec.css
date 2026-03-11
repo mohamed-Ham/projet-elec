@@ -1,91 +1,275 @@
-/* 1. Base Propre */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+    margin: 0; /* supprime les marges par défaut du navigateur */
+    padding: 0; /* supprime les espacements internes par défaut */
+    box-sizing: border-box; /* le padding ne s'ajoute pas à la taille, il est inclus dedans */
+    font-family: 'Segoe UI', sans-serif; /* police appliquée à tout le site */
+}
+
+html {
+    scroll-behavior: smooth; /* glissement fluide quand on clique sur un lien ancre (#contact etc.) */
 }
 
 body {
-    background-color: #f4f4f4;
+    background: #111317; /* fond très sombre presque noir */
+    color: #e8e8e8; /* texte blanc cassé, moins agressif que #ffffff pur */
+    line-height: 1.6; /* espace entre les lignes de texte, améliore la lisibilité */
 }
 
-/* 2. Navigation : Logo à gauche, Menu à droite */
 header {
-    background: #1a1a1a;
-    padding: 20px 5%; /* 5% de marge sur les côtés */
+    padding: 24px 60px; /* 24px haut/bas, 60px gauche/droite */
+    background: #1c1f26; /* légèrement plus clair que le body pour se distinguer */
+    border-bottom: 1px solid #2f3240; /* fine ligne de séparation discrète */
+    position: sticky; /* reste collé en haut de l'écran quand on défile */
+    top: 0; /* obligatoire avec sticky pour indiquer où il se colle */
+    z-index: 100; /* passe au-dessus de tout le reste de la page */
 }
 
 nav {
-    display: flex;
-    justify-content: space-between; /* Écarte le logo et le menu */
-    align-items: center;
+    display: flex; /* aligne les enfants (logo et ul) en ligne */
+    justify-content: space-between; /* logo poussé à gauche, liens poussés à droite */
+    align-items: center; /* centrage vertical entre le logo et les liens */
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+    display: flex; /* aligne les <li> en ligne au lieu de colonne */
+    list-style: none; /* supprime les puces devant chaque lien */
+    gap: 36px; /* espace entre chaque lien de navigation */
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* 3. Section Accueil : Bien centrée et aérée */
-.hero {
-    background: #fbc02d;
-    text-align: center;
-    padding: 100px 20px; /* Donne de la hauteur sans utiliser 'vh' */
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-.btn:hover {
-    background-color: #444;
+    color: #888; /* gris neutre par défaut */
+    text-decoration: none; /* supprime le soulignement natif des liens */
+    font-weight: 600; /* semi-gras */
+    transition: color 0.2s; /* changement de couleur progressif en 0.2 secondes au survol */
 }
 
 nav a:hover {
-    color: #fbc02d;
+    color: #f07020; /* orange au survol */
 }
 
-.service-carte:hover {
-    background-color: #f9f9f9;
+.logo-img {
+    height: 40px; /* hauteur fixe, la largeur s'adapte automatiquement */
+    border-radius: 10px; /* coins arrondis sur le logo */
 }
-/* 4. Section Services : 3 colonnes égales */
-.services {
+
+.tete {
+    padding: 100px 60px; /* grand espace vertical pour aérer la section */
+    background: linear-gradient(135deg, #1c1f26, #16191f); /* dégradé diagonal, 135deg = coin haut-gauche vers bas-droite */
+    border-bottom: 1px solid #252830; /* séparation discrète avec la section suivante */
+    display: flex; /* place le texte et l'image côte à côte */
+    align-items: center; /* aligne verticalement au centre */
+    justify-content: space-between; /* pousse le texte à gauche et l'image à droite */
+    gap: 40px; /* espace entre la colonne texte et la colonne image */
+}
+
+.tete-texte {
+    flex: 1; /* prend tout l'espace restant après la colonne image */
+}
+
+.tete-image {
+    flex: 0 0 520px; /* flex-grow:0 flex-shrink:0 flex-basis:520px = largeur fixe, ne bouge pas */
+}
+
+.tete-image img {
+    width: 100%; /* remplit toute la largeur de .tete-image */
+    height: 400px; /* hauteur forcée pour un rendu uniforme */
+    object-fit: cover; /* recadre l'image pour remplir la zone sans la déformer */
+    border-radius: 16px; /* coins arrondis plus prononcés que le logo */
+}
+
+.tete h1 {
+    font-size: 58px; /* très grand pour un impact visuel fort */
+    font-weight: 900; /* le plus gras possible */
+    line-height: 1.1; /* lignes serrées pour que le titre reste compact malgré sa taille */
+    color: #f07020; /* orange = couleur principale du site */
+    margin-bottom: 20px;
+}
+
+.tete p {
+    color: #888; /* gris pour contraster avec le titre orange */
+    font-size: 18px;
+    margin-bottom: 36px;
+}
+
+.btn {
+    display: inline-block; /* nécessaire pour qu'un lien <a> accepte padding et dimensions */
+    padding: 16px 40px; /* 16px haut/bas, 40px gauche/droite pour un bouton large */
+    background: #f07020;
+    color: #000; /* texte noir sur fond orange, meilleur contraste */
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none; /* supprime le soulignement du lien */
+    transition: opacity 0.2s, transform 0.2s; /* anime l'opacité et le déplacement en même temps */
+}
+
+.btn:hover {
+    opacity: 0.88; /* légèrement transparent au survol */
+    transform: translateY(-2px); /* remonte de 2px pour donner un effet de soulèvement */
+}
+
+.apropos {
+    padding: 80px 60px;
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 5%;
+    justify-content: center; /* centre .apropos-carte horizontalement dans la section */
 }
 
-.service-carte {
-    background: #fff;
-    padding: 30px;
-    flex: 1; /* Aligne les 3 cartes proprement */
+.apropos-carte {
+    background: #1c1f26;
+    border-left: 5px solid #f07020; /* trait coloré sur le bord gauche uniquement, effet décoratif */
+    border-radius: 12px;
+    padding: 50px 60px;
+    max-width: 820px; /* empêche la carte de devenir trop large sur grand écran */
+    width: 100%; /* prend 100% jusqu'à la limite de max-width */
+}
+
+.badge {
+    background: #f07020;
+    color: #000;
+    padding: 5px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block; /* sans ça, le badge prendrait toute la largeur de la carte */
+    margin-bottom: 20px;
+}
+
+.apropos-carte h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.apropos-carte p {
+    color: #aaa; /* légèrement plus clair que #888 pour un texte de contenu */
+}
+
+.prestations {
+    display: grid; /* grille CSS pour aligner les cartes */
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale (1fr = 1 fraction) */
+    gap: 20px; /* espace entre chaque carte */
+    padding: 0 60px 80px; /* pas de padding en haut, 60px côtés, 80px en bas */
+}
+
+.carte-service {
+    background: #1c1f26;
+    border: 1px solid #252830; /* bordure très discrète pour délimiter la carte */
+    border-radius: 10px;
+    padding: 40px 28px;
+    text-align: center; /* centre tout le contenu de la carte */
+    transition: background 0.25s, transform 0.2s; /* anime le fond et le déplacement séparément */
+}
+
+.carte-service:hover {
+    background: #f07020; /* fond orange complet au survol */
+    transform: translateY(-4px); /* soulève la carte de 4px */
+}
+
+.carte-service i {
+    font-size: 38px;
+    color: #f07020;
+    margin-bottom: 18px;
+    display: block; /* force l'icône sur sa propre ligne pour que text-align: center fonctionne */
+    transition: color 0.25s;
+}
+
+.carte-service h3 {
+    margin-bottom: 10px;
+    transition: color 0.25s; /* prépare l'animation de couleur au survol */
+}
+
+.carte-service p {
+    color: #888;
+    font-size: 14px;
+    transition: color 0.25s;
+}
+
+/* sélecteur multiple : on cible 3 éléments à la fois pour éviter de répéter color: #000 */
+.carte-service:hover i,
+.carte-service:hover h3,
+.carte-service:hover p {
+    color: #000; /* tout passe en noir quand le fond devient orange */
+}
+
+.contact {
+    padding: 80px 60px;
+    background: #1c1f26;
+    border-top: 1px solid #252830;
+}
+
+.contact h2 {
     text-align: center;
-    border-radius: 8px;
+    font-size: 30px;
+    margin-bottom: 40px;
 }
 
-/* 5. Pied de page */
+.formulaire {
+    max-width: 520px; /* formulaire pas trop large pour rester lisible */
+    margin: 0 auto; /* 0 haut/bas, auto gauche/droite = centre horizontalement */
+}
+
+.formulaire input {
+    width: 100%; /* chaque champ prend toute la largeur du formulaire */
+    padding: 15px 18px;
+    background: #2a2d36; /* légèrement plus clair que le fond du contact */
+    border: 1px solid #353845; /* bordure discrète pour délimiter le champ */
+    color: #e8e8e8; /* sans ça, le texte tapé serait noir sur fond sombre */
+    border-radius: 6px;
+    margin-bottom: 16px; /* espace entre chaque champ */
+}
+
+.formulaire button {
+    width: 100%; /* bouton aussi large que les champs */
+    padding: 17px;
+    background: #f07020;
+    border: none; /* supprime la bordure et l'apparence native du bouton HTML */
+    color: #000;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer; /* change le curseur en main pour indiquer que c'est cliquable */
+    transition: opacity 0.2s;
+}
+
+.formulaire button:hover {
+    opacity: 0.88;
+}
+
+#confirmation {
+    display: none; /* invisible au chargement, le JS le passe en block après envoi */
+    color: #f07020;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
 footer {
-    text-align: center;
-    padding: 30px;
-    background: #1a1a1a;
-    color: #fff;
+    padding: 30px 60px;
+    border-top: 1px solid #252830;
+    display: flex;
+    justify-content: space-between; /* icônes sociales à gauche, logo à droite */
+    align-items: center; /* aligne verticalement au milieu */
+}
+
+.socials {
+    display: flex;
+    gap: 20px; /* espace entre Facebook, Instagram, LinkedIn */
+}
+
+.socials a {
+    color: #888;
+    font-size: 20px; /* taille des icônes Font Awesome */
+    transition: color 0.2s;
+}
+
+.socials a:hover {
+    color: #f07020;
+}
+
+.footer-logo {
+    height: 30px; /* plus petit que dans la nav, rôle secondaire ici */
+    opacity: 0.6; /* semi-transparent pour rester discret */
+    border-radius: 8px;
+    transition: opacity 0.2s;
+}
+
+.footer-logo:hover {
+    opacity: 1; /* pleinement visible au survol pour indiquer que c'est cliquable */
 }
