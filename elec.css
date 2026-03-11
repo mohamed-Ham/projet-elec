@@ -173,7 +173,7 @@ nav a:hover {
 
 .carte-service h3 {
     margin-bottom: 10px;
-    transition: color 0.25s; /* prépare l'animation de couleur au survol */
+    transition: color 0.25s; /* prépare l'animation de couleur au survole */
 }
 
 .carte-service p {
@@ -248,18 +248,18 @@ footer {
     align-items: center; /* aligne verticalement au milieu */
 }
 
-.socials {
+.réseaux-sociaux {
     display: flex;
     gap: 20px; /* espace entre Facebook, Instagram, LinkedIn */
 }
 
-.socials a {
+.réseaux-sociaux a {
     color: #888;
     font-size: 20px; /* taille des icônes Font Awesome */
     transition: color 0.2s;
 }
 
-.socials a:hover {
+.réseaux-sociaux a:hover {
     color: #f07020;
 }
 
