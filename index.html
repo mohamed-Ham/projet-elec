@@ -2,93 +2,238 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Fishfer  Expertise Électrique</title>
+    <title>Fishfer | Expertise Électrique</title>
+    <!-- feuille de style principale du site -->
     <link rel="stylesheet" href="elec.css">
+    <!-- bibliothèque d'icônes Font Awesome chargée depuis un CDN externe -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<!-- id="top" sert de cible pour le lien retour en haut du footer -->
+<body id="top">
 
+    <!-- ============================================================
+         EN-TETE : barre de navigation collée en haut de la page
+         ============================================================ -->
     <header>
         <nav>
+            <!-- logo cliquable à gauche -->
             <div class="logo">
                 <img src="asset/logo.png" alt="Fishfer" class="logo-img">
             </div>
+            <!-- liens vers les sections de la page, le # renvoie à l'id de chaque section -->
             <ul>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#services">Prestations</a></li>
+                <li><a href="#prestations">Prestations</a></li>
+                <li><a href="#boutique">Boutique</a></li>
+                <li><a href="#apropos">À Propos</a></li>
                 <li><a href="#contact">Devis</a></li>
+                <!-- bouton mis en valeur avec une classe spéciale -->
+                <li><a href="#espace-client" class="btn-nav">Espace Client</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- ============================================================
+         1. ACCUEIL : accroche principale + photo à droite
+         ============================================================ -->
     <section class="tete">
+        <!-- colonne gauche : titre, description et boutons -->
         <div class="tete-texte">
             <h1>L'énergie<br>réinventée</h1>
-            <p>Réactivité immédiate et savoir-faire pour tous vos projets électriques.</p>
-            <a href="#contact" class="btn">Demander un devis gratuit</a>
+            <p>Électricien certifié, j'interviens rapidement chez vous pour tous vos projets : dépannage, installation neuf ou rénovation complète.</p>
+            <!-- deux boutons côte à côte : principal et secondaire -->
+            <div class="tete-boutons">
+                <a href="#contact" class="btn">Demander un devis gratuit</a>
+                <a href="#prestations" class="btn-discret">Voir les prestations</a>
+            </div>
         </div>
+        <!-- colonne droite : photo décorative -->
         <div class="tete-image">
             <img src="asset/lumiere.jpg" alt="Lumière électrique">
         </div>
     </section>
 
-    <section id="about" class="apropos">
+    <!-- ============================================================
+         2. PRESTATIONS : les 3 services détaillés en cartes
+         ============================================================ -->
+    <section id="prestations" class="prestations-section">
+        <!-- titre centré de section réutilisé dans plusieurs sections -->
+        <div class="section-titre">
+            <h2>Des prestations adaptées à vos besoins</h2>
+            <p>Particulier ou professionnel, je prends en charge tous types de travaux électriques avec rigueur et réactivité.</p>
+        </div>
+        <!-- grille des 3 cartes de service -->
+        <div class="prestations">
+            <!-- carte 1 : dépannage -->
+            <div class="carte-service">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Dépannage</h3>
+                <p>Intervention rapide 24h/24. Panne de courant, disjoncteur, court-circuit — je sécurise votre installation en urgence.</p>
+            </div>
+            <!-- carte 2 : neuf et rénovation -->
+            <div class="carte-service">
+                <i class="fa-solid fa-house-chimney-crack"></i>
+                <h3>Neuf & Rénovation</h3>
+                <p>Tableau électrique, prises, éclairage, domotique. Installations conformes aux normes NF C 15-100 avec attestation de conformité.</p>
+            </div>
+            <!-- carte 3 : mise aux normes -->
+            <div class="carte-service">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Mise aux normes</h3>
+                <p>Diagnostic complet de votre installation, rapport détaillé et mise en conformité pour la vente ou la location.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         3. BOUTIQUE & FORMATIONS : kits et formations en ligne
+         ============================================================ -->
+    <section id="boutique" class="boutique-section">
+        <div class="section-titre">
+            <h2>Développez votre autonomie électrique</h2>
+            <p>Kits prêts à l'emploi et formations en ligne pour apprendre à gérer les bases de l'électricité chez vous.</p>
+        </div>
+        <!-- grille des 3 cartes boutique -->
+        <div class="boutique-grille">
+            <!-- carte 1 : kits matériaux -->
+            <div class="boutique-carte">
+                <i class="fa-solid fa-box-open"></i>
+                <h3>Kits d'installation</h3>
+                <p>Tous les matériaux sélectionnés par un professionnel pour votre projet. Livraison rapide, notice incluse.</p>
+                <a href="#contact" class="btn-outline">Commander un kit</a>
+            </div>
+            <!-- carte 2 : formations vidéo -->
+            <div class="boutique-carte">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Formations en ligne</h3>
+                <p>Modules vidéo clairs et progressifs pour comprendre votre installation, intervenir en sécurité et économiser sur les petites réparations.</p>
+                <a href="#contact" class="btn-outline">Réserver une formation</a>
+            </div>
+            <!-- carte 3 : suivi en visio -->
+            <div class="boutique-carte">
+                <i class="fa-solid fa-headset"></i>
+                <h3>Suivi personnalisé</h3>
+                <p>Accès à une session de questions/réponses en visio avec un électricien certifié après votre formation.</p>
+                <a href="#contact" class="btn-outline">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         4. À PROPOS : parcours, expérience et garanties
+         ============================================================ -->
+    <section id="apropos" class="apropos">
         <div class="apropos-carte">
-            <span class="badge">Expertise & Garanties</span>
             <h2>Votre partenaire de confiance</h2>
-            <p>Un service fiable et réactif pour particuliers et entreprises. Nous vous accompagnons de l'installation à la mise en service, avec rigueur et transparence.</p>
+            <p>Électricien indépendant avec plus de 10 ans d'expérience, j'ai accompagné des centaines de particuliers et d'entreprises dans leurs projets électriques. Mon engagement : transparence, respect des délais et travail soigné.</p>
+            <!-- grille 2x2 des 4 points forts -->
+            <div class="garanties">
+                <!-- chaque garantie-item = icône + texte côte à côte -->
+                <div class="garantie-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    Certifié NF C 15-100
+                </div>
+                <div class="garantie-item">
+                    <i class="fa-solid fa-clock"></i>
+                    Intervention sous 2h
+                </div>
+                <div class="garantie-item">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    Devis gratuit & détaillé
+                </div>
+                <div class="garantie-item">
+                    <i class="fa-solid fa-euro-sign"></i>
+                    Prix transparents
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="prestations">
-        <div class="carte-service">
-            <i class="fa-solid fa-tools"></i>
-            <h3>Dépannage</h3>
-            <p>Intervention rapide 24h/24.</p>
-        </div>
-        <div class="carte-service">
-            <i class="fa-solid fa-house-chimney-crack"></i>
-            <h3>Neuf & Rénov</h3>
-            <p>Installations électriques complètes.</p>
-        </div>
-        <div class="carte-service">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <h3>Kits & Formations</h3>
-            <p>Maîtrisez votre expertise à distance.</p>
-        </div>
-    </section>
-
+    <!-- ============================================================
+         5. CONTACT : formulaire de demande de devis
+         ============================================================ -->
     <section id="contact" class="contact">
         <h2>Besoin d'une intervention ?</h2>
+        <!-- sous-titre discret sous le h2 -->
+        <p class="contact-sous-titre">Remplissez le formulaire, je vous rappelle sous 24h.</p>
         <div class="formulaire">
             <form id="monForm">
+                <!-- champ texte standard -->
                 <input type="text" placeholder="Nom complet" required>
+                <!-- type="email" vérifie automatiquement le format de l'adresse -->
                 <input type="email" placeholder="Email professionnel" required>
+                <!-- type="tel" affiche le clavier numérique sur mobile -->
                 <input type="tel" placeholder="Téléphone (ex: 06...)" required>
+                <!-- champ libre pour décrire la demande -->
                 <input type="text" placeholder="Décrivez votre projet ou votre panne..." required>
                 <button type="submit">Envoyer la demande</button>
             </form>
-            <p id="confirmation">✓ Merci ! Votre message a bien été envoyé.</p>
+            <!-- caché par défaut, affiché par le JS après envoi du formulaire -->
+            <p id="confirmation">✓ Merci ! Votre message a bien été envoyé. Je vous contacte sous 24h.</p>
         </div>
     </section>
 
+    <!-- ============================================================
+         6. ESPACE CLIENT : accès aux documents et formations
+         ============================================================ -->
+    <section id="espace-client" class="espace-client">
+        <div class="section-titre">
+            <h2>Accédez à vos ressources</h2>
+            <p>Retrouvez vos documents, factures et supports de formation dans votre espace personnel.</p>
+        </div>
+        <!-- grille 3 cartes identique à la boutique -->
+        <div class="client-grille">
+            <!-- carte 1 : documents PDF -->
+            <div class="client-carte">
+                <i class="fa-solid fa-file-pdf"></i>
+                <h3>Mes documents</h3>
+                <p>Devis, factures et attestations de conformité disponibles en téléchargement.</p>
+                <a href="#" class="btn-outline">Accéder</a>
+            </div>
+            <!-- carte 2 : formations achetées -->
+            <div class="client-carte">
+                <i class="fa-solid fa-play-circle"></i>
+                <h3>Mes formations</h3>
+                <p>Retrouvez vos modules vidéo et supports de cours achetés.</p>
+                <a href="#" class="btn-outline">Accéder</a>
+            </div>
+            <!-- carte 3 : connexion au compte -->
+            <div class="client-carte">
+                <i class="fa-solid fa-user-lock"></i>
+                <h3>Mon compte</h3>
+                <p>Gérez vos informations personnelles et suivez l'avancement de vos projets.</p>
+                <a href="#" class="btn-outline">Se connecter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PIED DE PAGE : réseaux sociaux + logo retour en haut
+         ============================================================ -->
     <footer>
-        <div class="réseaux-sociaux">
+        <!-- icônes des réseaux sociaux, target="_blank" ouvre dans un nouvel onglet -->
+        <div class="socials">
             <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <a href="#"><img src="asset/logo.png" alt="Fishfer" class="footer-logo"></a>
+        <!-- clic sur le logo remonte en haut grâce à href="#top" -->
+        <a href="#top"><img src="asset/logo.png" alt="Fishfer" class="footer-logo"></a>
     </footer>
 
+    <!-- ============================================================
+         SCRIPT : gestion de la soumission du formulaire
+         ============================================================ -->
     <script>
+        /* on récupère le formulaire et le message de confirmation dans le DOM */
         const form = document.getElementById('monForm');
         const confirmMsg = document.getElementById('confirmation');
+
         form.onsubmit = function(e) {
-            e.preventDefault();
-            form.style.display = 'none';
-            confirmMsg.style.display = 'block';
+            e.preventDefault(); /* empêche le rechargement de la page à l'envoi */
+            form.style.display = 'none'; /* cache le formulaire après envoi */
+            confirmMsg.style.display = 'block'; /* affiche le message de confirmation */
         };
+
     </script>
 
 </body>
