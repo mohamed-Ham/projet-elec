@@ -533,3 +533,80 @@ footer {
     }
 
 }
+
+
+/* message "Bientôt disponible" dans les cartes espace client */
+/* caché par défaut, affiché par le JS au clic sur le bouton */
+.msg-bientot {
+    display: none; /* caché par défaut, le JS le rend visible */
+    color: #f07020; /* même orange que #confirmation */
+    text-align: center;
+    font-weight: 600;
+}
+
+
+/* message d'erreur formulaire, même style que #confirmation */
+#erreur {
+    display: none; /* caché par défaut, affiché par le JS si une validation échoue */
+    color: #e05050; /* rouge pour signaler l'erreur */
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+/* animation de secousse sur le bouton en cas d'erreur */
+@keyframes secousse {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(-8px); } /* part à gauche */
+    40%  { transform: translateX(8px); }  /* part à droite */
+    60%  { transform: translateX(-5px); }
+    80%  { transform: translateX(5px); }
+    100% { transform: translateX(0); }    /* revient au centre */
+}
+
+/* la classe est ajoutée par le JS au clic, retirée après 0,5s */
+.secousse {
+    animation: secousse 0.5s ease; /* durée identique au setTimeout du script */
+}
+
+
+/* --- MENTIONS LEGALES dans le footer --- */
+.mentions {
+    color: #666;
+    font-size: 13px;
+    text-align: center;
+}
+
+.mentions a {
+    color: #888;
+    text-decoration: none;
+}
+
+.mentions a:hover {
+    color: #f07020;
+}
+
+/* --- ANIMATION 2 : fondu sur le message de confirmation --- */
+@keyframes fondu {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fondu {
+    animation: fondu 0.5s ease;
+}
+
+/* --- CORRECTION MENU MOBILE : liens centrés et lisibles --- */
+@media (max-width: 768px) {
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 16px; /* 8px vertical, 16px horizontal entre les liens */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* texte légèrement plus petit pour tenir sur mobile */
+    }
+
+}

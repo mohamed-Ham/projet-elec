@@ -22,13 +22,12 @@
             <div class="logo">
                 <img src="asset/logo.png" alt="Fishfer" class="logo-img">
             </div>
-            <!-- liens vers les sections de la page, le # renvoie à l'id de chaque section -->
+            <!-- liens vers les sections de la page -->
             <ul id="nav-menu">
                 <li><a href="#prestations">Prestations</a></li>
                 <li><a href="#boutique">Boutique</a></li>
                 <li><a href="#apropos">À Propos</a></li>
                 <li><a href="#contact">Devis</a></li>
-                <!-- bouton mis en valeur avec une classe spéciale -->
                 <li><a href="#espace-client" class="btn-nav">Espace Client</a></li>
             </ul>
         </nav>
@@ -160,17 +159,21 @@
         <div class="formulaire">
             <form id="monForm">
                 <!-- champ texte standard -->
-                <input type="text" placeholder="Nom complet" required>
-                <!-- type="email" vérifie automatiquement le format de l'adresse -->
-                <input type="email" placeholder="Email professionnel" required>
-                <!-- type="tel" affiche le clavier numérique sur mobile -->
-                <input type="tel" placeholder="Téléphone (ex: 06...)" required>
+                <input type="text" id="champ-nom" placeholder="Nom complet" required>
+                <!-- type="email" + vérification JS plus stricte dans le script -->
+                <input type="email" id="champ-email" placeholder="Email professionnel" required>
+                <!-- type="tel" + vérification JS : chiffres uniquement -->
+                <input type="tel" id="champ-tel" placeholder="Téléphone (ex: 06...)" required>
                 <!-- champ libre pour décrire la demande -->
                 <input type="text" placeholder="Décrivez votre projet ou votre panne..." required>
-                <button type="submit">Envoyer la demande</button>
+                <!-- anti-spam : question de maths générée par le JS au chargement de la page -->
+                <input type="number" id="champ-antispam" placeholder="" required>
+                <button type="submit" id="btn-envoyer">Envoyer la demande</button>
             </form>
+            <!-- message d'erreur, caché par défaut, affiché si l'anti-spam échoue -->
+            <p id="erreur">Réponse incorrecte, veuillez réessayer.</p>
             <!-- caché par défaut, affiché par le JS après envoi du formulaire -->
-            <p id="confirmation">✓ Merci ! Votre message a bien été envoyé. Je vous contacte sous 24h.</p>
+            <p id="confirmation">Merci ! Votre message a bien été envoyé. Je vous contacte sous 24h.</p>
         </div>
     </section>
 
@@ -189,36 +192,42 @@
                 <i class="fa-solid fa-file-pdf"></i>
                 <h3>Mes documents</h3>
                 <p>Devis, factures et attestations de conformité disponibles en téléchargement.</p>
-                <a href="#" class="btn-outline">Accéder</a>
+                <!-- onclick passe la carte entière à bientot() pour qu'elle trouve le message caché -->
+                <a href="#" class="btn-outline" onclick="return bientot(this)">Accéder</a>
+                <!-- caché par défaut, affiché par le JS au clic, même style que #confirmation -->
+                <p class="msg-bientot">Bientôt disponible</p>
             </div>
             <!-- carte 2 : formations achetées -->
             <div class="client-carte">
                 <i class="fa-solid fa-play-circle"></i>
                 <h3>Mes formations</h3>
                 <p>Retrouvez vos modules vidéo et supports de cours achetés.</p>
-                <a href="#" class="btn-outline">Accéder</a>
+                <a href="#" class="btn-outline" onclick="return bientot(this)">Accéder</a>
+                <p class="msg-bientot">Bientôt disponible</p>
             </div>
             <!-- carte 3 : connexion au compte -->
             <div class="client-carte">
                 <i class="fa-solid fa-user-lock"></i>
                 <h3>Mon compte</h3>
                 <p>Gérez vos informations personnelles et suivez l'avancement de vos projets.</p>
-                <a href="#" class="btn-outline">Se connecter</a>
+                <a href="#" class="btn-outline" onclick="return bientot(this)">Se connecter</a>
+                <p class="msg-bientot">Bientôt disponible</p>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         PIED DE PAGE : réseaux sociaux + logo retour en haut
+         PIED DE PAGE : réseaux sociaux + mentions légales + logo
          ============================================================ -->
     <footer>
-        <!-- icônes des réseaux sociaux, target="_blank" ouvre dans un nouvel onglet -->
         <div class="socials">
             <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <!-- clic sur le logo remonte en haut grâce à href="#top" -->
+        <!-- mentions légales affichées directement dans le footer -->
+        <p class="mentions">© 2026 Fishfer — Électricien indépendant — <a href="mailto:contact@fishfer.fr">contact@fishfer.fr</a></p>
+        <!-- clic sur le logo remonte en haut -->
         <a href="#top"><img src="asset/logo.png" alt="Fishfer" class="footer-logo"></a>
     </footer>
 
@@ -226,15 +235,48 @@
          SCRIPT : gestion de la soumission du formulaire
          ============================================================ -->
     <script>
-        /* on récupère le formulaire et le message de confirmation dans le DOM */
-        const form = document.getElementById('monForm');
+        /* ---- ANTI-SPAM : question de maths aléatoire ---- */
+        const a = Math.floor(Math.random() * 9) + 1;
+        const b = Math.floor(Math.random() * 9) + 1;
+        const bonneReponse = a + b;
+        document.getElementById('champ-antispam').placeholder = 'Combien font ' + a + ' + ' + b + ' ?';
+
+        /* ---- FORMULAIRE ---- */
+        const form       = document.getElementById('monForm');
         const confirmMsg = document.getElementById('confirmation');
+        const erreurMsg  = document.getElementById('erreur');
+        const btn        = document.getElementById('btn-envoyer');
 
         form.onsubmit = function(e) {
-            e.preventDefault(); /* empêche le rechargement de la page à l'envoi */
-            form.style.display = 'none'; /* cache le formulaire après envoi */
-            confirmMsg.style.display = 'block'; /* affiche le message de confirmation */
+            e.preventDefault();
+
+            const email   = document.getElementById('champ-email').value;
+            const tel     = document.getElementById('champ-tel').value;
+            const reponse = parseInt(document.getElementById('champ-antispam').value);
+
+            const emailValide = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); /* vérifie @ et . */
+            const telValide   = !/[a-zA-Z]/.test(tel); /* refuse les lettres dans le téléphone */
+
+            if (!emailValide || !telValide || reponse !== bonneReponse) {
+                btn.classList.add('secousse'); /* ANIMATION 1 : bouton qui tremble */
+                setTimeout(function() { btn.classList.remove('secousse'); }, 500);
+                erreurMsg.style.display = 'block';
+                return;
+            }
+
+            /* ANIMATION 2 : confirmation qui apparaît en fondu */
+            erreurMsg.style.display = 'none';
+            form.style.display = 'none';
+            confirmMsg.classList.add('fondu');
+            confirmMsg.style.display = 'block';
         };
+
+        /* ---- ESPACE CLIENT ---- */
+        function bientot(bouton) {
+            bouton.style.display = 'none';
+            bouton.nextElementSibling.style.display = 'block';
+            return false;
+        }
     </script>
 
 </body>
