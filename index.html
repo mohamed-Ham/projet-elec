@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- viewport obligatoire pour que le CSS responsive fonctionne sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fishfer | Expertise Électrique</title>
     <!-- feuille de style principale du site -->
     <link rel="stylesheet" href="elec.css">
@@ -21,7 +23,7 @@
                 <img src="asset/logo.png" alt="Fishfer" class="logo-img">
             </div>
             <!-- liens vers les sections de la page, le # renvoie à l'id de chaque section -->
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#prestations">Prestations</a></li>
                 <li><a href="#boutique">Boutique</a></li>
                 <li><a href="#apropos">À Propos</a></li>
@@ -233,7 +235,6 @@
             form.style.display = 'none'; /* cache le formulaire après envoi */
             confirmMsg.style.display = 'block'; /* affiche le message de confirmation */
         };
-
     </script>
 
 </body>

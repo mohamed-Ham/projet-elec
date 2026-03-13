@@ -17,7 +17,7 @@ body {
 header {
     padding: 24px 60px; /* 24px haut/bas, 60px gauche/droite */
     background: #1c1f26; /* légèrement plus clair que le body */
-    border-bottom: 1px solid #2f3240; /* fine ligne de séparation */
+    border-bottom: 1px solid #2f3240; /* fine ligne de séparation en bas du header */
     position: sticky; /* reste collée en haut quand on défile */
     top: 0; /* obligatoire avec sticky, indique où elle se colle */
     box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* ombre pour qu'elle semble passer par-dessus le contenu */
@@ -53,13 +53,13 @@ nav a:hover {
 
 /* bouton capsule orange dans la nav pour l'espace client */
 .btn-nav {
-    background: #f07020;
+    background: #f07020; /* fond orange */
     color: #000; /* texte noir sur fond orange */
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: opacity 0.2s;
+    padding: 8px 18px; /* 8px haut/bas, 18px gauche/droite */
+    border-radius: 6px; /* coins arrondis */
+    font-weight: 700; /* texte en gras */
+    text-decoration: none; /* supprime le soulignement du lien */
+    transition: opacity 0.2s; /* fondu au survol */
 }
 
 .btn-nav:hover {
@@ -73,7 +73,7 @@ nav a:hover {
 .tete {
     padding: 100px 60px; /* grand padding vertical pour aérer */
     background: linear-gradient(135deg, #1c1f26, #16191f); /* dégradé diagonal */
-    border-bottom: 1px solid #252830;
+    border-bottom: 1px solid #252830; /* fine ligne de séparation */
     display: flex; /* texte à gauche, image à droite */
     align-items: center; /* aligne les deux colonnes verticalement */
     justify-content: space-between; /* pousse le texte à gauche et l'image à droite */
@@ -100,13 +100,13 @@ nav a:hover {
     font-weight: 900; /* le plus gras possible */
     line-height: 1.1; /* lignes serrées pour le grand titre sur deux lignes */
     color: #f07020; /* orange = couleur principale */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* espace entre le titre et le paragraphe */
 }
 
 .tete p {
     color: #888; /* gris pour contraster avec le titre orange */
-    font-size: 18px;
-    margin-bottom: 36px;
+    font-size: 18px; /* légèrement plus grand que le texte normal */
+    margin-bottom: 36px; /* espace avant les boutons */
 }
 
 /* conteneur des deux boutons côte à côte */
@@ -123,10 +123,10 @@ nav a:hover {
 .btn {
     display: inline-block; /* un <a> a besoin de ça pour accepter le padding */
     padding: 16px 40px; /* 16px haut/bas, 40px gauche/droite */
-    background: #f07020;
+    background: #f07020; /* fond orange */
     color: #000; /* texte noir sur fond orange */
-    font-weight: 700;
-    border-radius: 6px;
+    font-weight: 700; /* texte en gras */
+    border-radius: 6px; /* coins arrondis */
     text-decoration: none; /* supprime le soulignement du lien */
     transition: opacity 0.2s, transform 0.2s; /* anime les deux en même temps */
 }
@@ -138,10 +138,10 @@ nav a:hover {
 
 /* lien secondaire sans fond ni bordure */
 .btn-discret {
-    color: #888;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
+    color: #888; /* gris discret */
+    text-decoration: none; /* pas de soulignement */
+    font-weight: 600; /* semi-gras */
+    transition: color 0.2s; /* changement de couleur progressif */
 }
 
 .btn-discret:hover {
@@ -151,13 +151,13 @@ nav a:hover {
 /* bouton avec contour orange, sans fond */
 .btn-outline {
     display: inline-block; /* un <a> a besoin de ça pour accepter le padding */
-    padding: 10px 24px;
+    padding: 10px 24px; /* plus compact que le bouton principal */
     border: 2px solid #f07020; /* bordure orange visible */
-    color: #f07020;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    color: #f07020; /* texte orange */
+    border-radius: 6px; /* coins arrondis */
+    text-decoration: none; /* pas de soulignement */
+    font-weight: 700; /* texte en gras */
+    font-size: 14px; /* légèrement plus petit */
     transition: background 0.2s, color 0.2s; /* anime le fond et la couleur du texte */
 }
 
@@ -176,12 +176,12 @@ nav a:hover {
 }
 
 .section-titre h2 {
-    font-size: 34px;
+    font-size: 34px; /* grand titre de section */
     margin: 12px 0; /* petit espace haut et bas */
 }
 
 .section-titre p {
-    color: #888;
+    color: #888; /* gris pour le texte secondaire */
     max-width: 560px; /* limite la largeur pour rester lisible */
     margin: 0 auto; /* centre le paragraphe dans la section */
 }
@@ -195,17 +195,17 @@ nav a:hover {
 
 /* les cartes se partagent l'espace automatiquement grâce à flex */
 .prestations {
-    display: flex;
+    display: flex; /* cartes côte à côte */
     gap: 20px; /* espace entre chaque carte */
-    padding: 0 60px 80px;
+    padding: 0 60px 80px; /* padding bas ici, pas dans .prestations-section */
 }
 
 .carte-service {
     flex: 1; /* chaque carte prend exactement la même largeur */
-    background: #1c1f26;
+    background: #1c1f26; /* fond sombre */
     border: 1px solid #252830; /* bordure discrète */
-    border-radius: 10px;
-    padding: 40px 28px;
+    border-radius: 10px; /* coins arrondis */
+    padding: 40px 28px; /* grand espace intérieur */
     text-align: center; /* centre tout le contenu */
     transition: background 0.25s, transform 0.2s; /* anime le fond et le déplacement */
 }
@@ -216,42 +216,42 @@ nav a:hover {
 }
 
 .carte-service i {
-    font-size: 38px;
-    color: #f07020;
-    margin-bottom: 18px;
+    font-size: 38px; /* icône grande */
+    color: #f07020; /* orange par défaut */
+    margin-bottom: 18px; /* espace entre l'icône et le titre */
     display: block; /* met l'icône sur sa propre ligne pour que text-align: center fonctionne */
-    transition: color 0.25s;
+    transition: color 0.25s; /* prépare l'animation de couleur au survol */
 }
 
 .carte-service h3 {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* espace entre le titre et le texte */
     transition: color 0.25s; /* prépare l'animation de couleur au survol */
 }
 
 .carte-service p {
-    color: #888;
-    font-size: 14px;
-    transition: color 0.25s;
+    color: #888; /* gris pour le texte secondaire */
+    font-size: 14px; /* légèrement plus petit */
+    transition: color 0.25s; /* prépare l'animation de couleur au survol */
 }
 
 /* quand la carte est orange, les 3 éléments passent en noir en même temps */
 .carte-service:hover i,
 .carte-service:hover h3,
 .carte-service:hover p {
-    color: #000;
+    color: #000; /* noir sur fond orange */
 }
 
 
 /* --- BOUTIQUE --- */
 
 .boutique-section {
-    padding: 80px 60px;
+    padding: 80px 60px; /* même padding que les autres sections */
 }
 
 /* les deux grilles utilisent la même mise en page */
 .boutique-grille,
 .client-grille {
-    display: flex;
+    display: flex; /* cartes côte à côte */
     gap: 20px; /* espace entre les cartes */
 }
 
@@ -259,17 +259,17 @@ nav a:hover {
 .boutique-carte,
 .client-carte {
     flex: 1; /* chaque carte prend la même largeur */
-    border: 1px solid #252830;
-    border-radius: 10px;
-    padding: 40px 28px;
-    text-align: center;
-    display: flex;
+    border: 1px solid #252830; /* bordure discrète */
+    border-radius: 10px; /* coins arrondis */
+    padding: 40px 28px; /* grand espace intérieur */
+    text-align: center; /* centre tout le contenu */
+    display: flex; /* permet de pousser le bouton en bas */
     flex-direction: column; /* empile icône, titre, texte et bouton de haut en bas */
     gap: 14px; /* espace entre chaque élément de la carte */
 }
 
 .boutique-carte {
-    background: #1c1f26;
+    background: #1c1f26; /* fond légèrement clair */
 }
 
 .client-carte {
@@ -278,19 +278,19 @@ nav a:hover {
 
 .boutique-carte i,
 .client-carte i {
-    font-size: 38px;
-    color: #f07020;
+    font-size: 38px; /* icône grande */
+    color: #f07020; /* orange */
 }
 
 .boutique-carte h3,
 .client-carte h3 {
-    font-size: 20px;
+    font-size: 20px; /* titre de carte un peu plus grand que la normale */
 }
 
 .boutique-carte p,
 .client-carte p {
-    color: #888;
-    font-size: 14px;
+    color: #888; /* gris pour le texte secondaire */
+    font-size: 14px; /* légèrement plus petit */
     flex: 1; /* prend tout l'espace restant et pousse le bouton en bas */
 }
 
@@ -298,51 +298,51 @@ nav a:hover {
 /* --- A PROPOS --- */
 
 .apropos {
-    padding: 80px 60px;
-    display: flex;
+    padding: 80px 60px; /* même padding que les autres sections */
+    display: flex; /* permet de centrer la carte */
     justify-content: center; /* centre la carte dans la section */
 }
 
 .apropos-carte {
-    background: #1c1f26;
+    background: #1c1f26; /* fond sombre */
     border-left: 5px solid #f07020; /* trait coloré à gauche uniquement */
-    border-radius: 12px;
-    padding: 50px 60px;
+    border-radius: 12px; /* coins arrondis */
+    padding: 50px 60px; /* grand espace intérieur */
     max-width: 820px; /* limite la largeur sur grand écran */
     width: 100%; /* prend 100% jusqu'à la limite de max-width */
 }
 
 .apropos-carte h2 {
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 32px; /* grand titre */
+    margin-bottom: 16px; /* espace entre le titre et le texte */
 }
 
 .apropos-carte p {
-    color: #aaa;
+    color: #aaa; /* gris clair, un peu plus visible que #888 */
 }
 
 /* 4 garanties disposées sur 2 rangées de 2 */
 .garanties {
-    display: flex;
+    display: flex; /* éléments côte à côte */
     flex-wrap: wrap; /* passe à la ligne automatiquement quand il n'y a plus de place */
-    gap: 16px;
-    margin-top: 30px;
+    gap: 16px; /* espace entre les items */
+    margin-top: 30px; /* espace entre le texte et les garanties */
 }
 
 .garantie-item {
     flex: 1; /* les items se partagent l'espace sur chaque ligne */
     min-width: 200px; /* force le passage à la ligne si l'écran est trop petit */
-    display: flex;
+    display: flex; /* icône et texte côte à côte */
     align-items: center; /* aligne l'icône et le texte verticalement */
     gap: 12px; /* espace entre l'icône et le texte */
-    background: #111317;
-    padding: 14px 18px;
-    border-radius: 8px;
+    background: #111317; /* fond sombre */
+    padding: 14px 18px; /* espace intérieur */
+    border-radius: 8px; /* coins arrondis */
 }
 
 .garantie-item i {
-    color: #f07020;
-    font-size: 18px;
+    color: #f07020; /* orange */
+    font-size: 18px; /* taille de l'icône */
     min-width: 18px; /* empêche l'icône de rétrécir si le texte est long */
 }
 
@@ -350,21 +350,21 @@ nav a:hover {
 /* --- CONTACT --- */
 
 .contact {
-    padding: 80px 60px;
-    background: #1c1f26;
-    border-top: 1px solid #252830;
+    padding: 80px 60px; /* même padding que les autres sections */
+    background: #1c1f26; /* fond légèrement clair pour distinguer la section */
+    border-top: 1px solid #252830; /* fine ligne de séparation en haut */
 }
 
 .contact h2 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 40px;
+    text-align: center; /* titre centré */
+    font-size: 30px; /* grand titre */
+    margin-bottom: 40px; /* espace entre le titre et le sous-titre */
 }
 
 .contact-sous-titre {
-    text-align: center;
-    color: #888;
-    margin-bottom: 30px;
+    text-align: center; /* centré comme le titre */
+    color: #888; /* gris discret */
+    margin-bottom: 30px; /* espace avant le formulaire */
     margin-top: -28px; /* compense le margin-bottom du h2 pour rapprocher les deux textes */
 }
 
@@ -375,80 +375,161 @@ nav a:hover {
 
 .formulaire input {
     width: 100%; /* prend toute la largeur du formulaire */
-    padding: 15px 18px;
+    padding: 15px 18px; /* espace confortable à l'intérieur du champ */
     background: #2a2d36; /* légèrement plus clair que le fond de la section */
     border: 1px solid #353845; /* bordure discrète */
     color: #e8e8e8; /* sans ça le texte tapé serait noir sur fond sombre */
-    border-radius: 6px;
+    border-radius: 6px; /* coins arrondis */
     margin-bottom: 16px; /* espace entre chaque champ */
 }
 
 .formulaire button {
     width: 100%; /* aussi large que les champs */
-    padding: 17px;
-    background: #f07020;
+    padding: 17px; /* espace intérieur généreux */
+    background: #f07020; /* fond orange */
     border: none; /* supprime la bordure native des boutons HTML */
-    color: #000;
-    font-weight: 700;
-    border-radius: 6px;
+    color: #000; /* texte noir sur fond orange */
+    font-weight: 700; /* texte en gras */
+    border-radius: 6px; /* coins arrondis */
     cursor: pointer; /* affiche la main au survol */
-    transition: opacity 0.2s;
+    transition: opacity 0.2s; /* fondu au survol */
 }
 
 .formulaire button:hover {
-    opacity: 0.88;
+    opacity: 0.88; /* légèrement transparent au survol */
 }
 
 #confirmation {
     display: none; /* caché par défaut, le JS l'affiche après l'envoi */
-    color: #f07020;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: 600;
+    color: #f07020; /* orange pour attirer l'attention */
+    text-align: center; /* centré dans le formulaire */
+    margin-top: 20px; /* espace au-dessus du message */
+    font-weight: 600; /* semi-gras */
 }
 
 
 /* --- ESPACE CLIENT --- */
 
 .espace-client {
-    padding: 80px 60px;
-    background: #1c1f26;
-    border-top: 1px solid #252830;
+    padding: 80px 60px; /* même padding que les autres sections */
+    background: #1c1f26; /* fond légèrement clair */
+    border-top: 1px solid #252830; /* fine ligne de séparation en haut */
 }
 
 
 /* --- FOOTER --- */
 
 footer {
-    padding: 30px 60px;
-    border-top: 1px solid #252830;
-    display: flex;
+    padding: 30px 60px; /* plus compact que les sections */
+    border-top: 1px solid #252830; /* fine ligne de séparation en haut */
+    display: flex; /* icônes et logo côte à côte */
     justify-content: space-between; /* icônes à gauche, logo à droite */
-    align-items: center;
+    align-items: center; /* aligne verticalement au centre */
 }
 
 .socials {
-    display: flex;
+    display: flex; /* icônes côte à côte */
     gap: 20px; /* espace entre les icônes des réseaux */
 }
 
 .socials a {
-    color: #888;
+    color: #888; /* gris discret par défaut */
     font-size: 20px; /* taille des icônes Font Awesome */
-    transition: color 0.2s;
+    transition: color 0.2s; /* changement de couleur progressif au survol */
 }
 
 .socials a:hover {
-    color: #f07020;
+    color: #f07020; /* orange au survol */
 }
 
 .footer-logo {
     height: 30px; /* plus petit que dans la nav, rôle secondaire */
     opacity: 0.6; /* discret par défaut */
-    border-radius: 8px;
-    transition: opacity 0.2s;
+    border-radius: 8px; /* coins arrondis */
+    transition: opacity 0.2s; /* fondu au survol */
 }
 
 .footer-logo:hover {
     opacity: 1; /* pleinement visible au survol */
+}
+
+
+/* ============================================================
+   RESPONSIVE — tout s'empile sur mobile (768px et moins)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* --- Navigation : padding réduit sur les côtés --- */
+    header {
+        padding: 16px 20px; /* moins de marge sur les côtés */
+    }
+
+    nav {
+        flex-wrap: wrap; /* logo et liens passent à la ligne si nécessaire */
+        gap: 12px; /* espace entre les rangées */
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* les liens passent à la ligne si besoin */
+        gap: 12px; /* espace entre les liens */
+        justify-content: center; /* liens centrés sur mobile */
+    }
+
+    /* --- Accueil : photo au-dessus, texte en dessous --- */
+    .tete {
+        flex-direction: column-reverse; /* column-reverse = photo en premier, texte après */
+        padding: 40px 20px; /* padding réduit */
+        text-align: center; /* texte centré sur mobile */
+    }
+
+    .tete-image {
+        width: 100%; /* photo pleine largeur au lieu des 520px fixes */
+    }
+
+    .tete-image img {
+        height: 220px; /* hauteur réduite sur petit écran */
+    }
+
+    .tete h1 {
+        font-size: 38px; /* titre plus petit que les 58px du desktop */
+    }
+
+    .tete-boutons {
+        justify-content: center; /* boutons centrés sur mobile */
+    }
+
+    /* --- Sections : padding réduit sur les côtés --- */
+    .prestations-section,
+    .boutique-section,
+    .apropos,
+    .contact,
+    .espace-client {
+        padding: 50px 20px; /* 20px au lieu de 60px sur les côtés */
+    }
+
+    .prestations {
+        padding: 0 20px 50px; /* adapte aussi le padding des cartes */
+    }
+
+    /* --- Cartes : empilées en colonne au lieu d'être côte à côte --- */
+    .prestations,
+    .boutique-grille,
+    .client-grille {
+        flex-direction: column; /* une carte par ligne */
+    }
+
+    /* --- À Propos : padding intérieur réduit --- */
+    .apropos-carte {
+        padding: 30px 20px; /* moins d'espace intérieur sur mobile */
+    }
+
+    /* --- Footer : logo sous les icônes --- */
+    footer {
+        flex-direction: column; /* icônes au-dessus, logo en dessous */
+        gap: 20px; /* espace entre les deux */
+        padding: 24px 20px; /* padding réduit */
+        text-align: center; /* tout centré */
+    }
+
 }
